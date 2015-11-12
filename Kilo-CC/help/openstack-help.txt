@@ -1,0 +1,335 @@
+usage: openstack [--version] [-v] [--log-file LOG_FILE] [-q] [--debug]
+                 [--os-region-name <auth-region-name>]
+                 [--os-cacert <ca-bundle-file>] [--verify | --insecure]
+                 [--os-default-domain <auth-domain>] [--timing]
+                 [--os-compute-api-version <compute-api-version>]
+                 [--os-network-api-version <network-api-version>]
+                 [--os-image-api-version <image-api-version>]
+                 [--os-volume-api-version <volume-api-version>]
+                 [--os-identity-api-version <identity-api-version>]
+                 [--os-auth-type <auth-type>] [--os-username <auth-username>]
+                 [--os-identity-provider <auth-identity-provider>]
+                 [--os-project-domain-name <auth-project-domain-name>]
+                 [--os-project-domain-id <auth-project-domain-id>]
+                 [--os-project-name <auth-project-name>]
+                 [--os-auth-url <auth-auth-url>]
+                 [--os-identity-provider-url <auth-identity-provider-url>]
+                 [--os-trust-id <auth-trust-id>]
+                 [--os-service-provider-endpoint <auth-service-provider-endpoint>]
+                 [--os-user-domain-id <auth-user-domain-id>]
+                 [--os-url <auth-url>] [--os-token <auth-token>]
+                 [--os-domain-name <auth-domain-name>]
+                 [--os-user-domain-name <auth-user-domain-name>]
+                 [--os-domain-id <auth-domain-id>]
+                 [--os-user-id <auth-user-id>] [--os-password <auth-password>]
+                 [--os-project-id <auth-project-id>]
+                 [--os-object-api-version <object-api-version>] [-h]
+
+Command-line interface to the OpenStack APIs
+
+optional arguments:
+  --version             show program's version number and exit
+  -v, --verbose         Increase verbosity of output. Can be repeated.
+  --log-file LOG_FILE   Specify a file to log output. Disabled by default.
+  -q, --quiet           suppress output except warnings and errors
+  -h, --help            show this help message and exit
+  --debug               show tracebacks on errors
+  --os-region-name <auth-region-name>
+                        Authentication region name (Env: OS_REGION_NAME)
+  --os-cacert <ca-bundle-file>
+                        CA certificate bundle file (Env: OS_CACERT)
+  --verify              Verify server certificate (default)
+  --insecure            Disable server certificate verification
+  --os-default-domain <auth-domain>
+                        Default domain ID, default=default (Env:
+                        OS_DEFAULT_DOMAIN)
+  --timing              Print API call timing info
+  --os-compute-api-version <compute-api-version>
+                        Compute API version, default=2 (Env:
+                        OS_COMPUTE_API_VERSION)
+  --os-network-api-version <network-api-version>
+                        Network API version, default=2 (Env:
+                        OS_NETWORK_API_VERSION)
+  --os-image-api-version <image-api-version>
+                        Image API version, default=1 (Env:
+                        OS_IMAGE_API_VERSION)
+  --os-volume-api-version <volume-api-version>
+                        Volume API version, default=1 (Env:
+                        OS_VOLUME_API_VERSION)
+  --os-identity-api-version <identity-api-version>
+                        Identity API version, default=2 (Env:
+                        OS_IDENTITY_API_VERSION)
+  --os-auth-type <auth-type>
+                        Select an auhentication type. Available types:
+                        osc_password, token_endpoint, v2token, v2password,
+                        v3password, v3scopedsaml, v3unscopedadfs, token,
+                        v3token, password, v3unscopedsaml. Default: selected
+                        based on --os-username/--os-token (Env: OS_AUTH_TYPE)
+  --os-username <auth-username>
+                        With osc_password: Username With v2password: Username
+                        to login with With v3password: Username With
+                        v3unscopedadfs: Username With password: Username With
+                        v3unscopedsaml: Username (Env: OS_USERNAME)
+  --os-identity-provider <auth-identity-provider>
+                        With v3unscopedadfs: Identity Provider's name With
+                        v3unscopedsaml: Identity Provider's name (Env:
+                        OS_IDENTITY_PROVIDER)
+  --os-project-domain-name <auth-project-domain-name>
+                        With osc_password: Domain name containing project With
+                        v3password: Domain name containing project With
+                        v3scopedsaml: Domain name containing project With
+                        v3unscopedadfs: Domain name containing project With
+                        token: Domain name containing project With v3token:
+                        Domain name containing project With password: Domain
+                        name containing project With v3unscopedsaml: Domain
+                        name containing project (Env: OS_PROJECT_DOMAIN_NAME)
+  --os-project-domain-id <auth-project-domain-id>
+                        With osc_password: Domain ID containing project With
+                        v3password: Domain ID containing project With
+                        v3scopedsaml: Domain ID containing project With
+                        v3unscopedadfs: Domain ID containing project With
+                        token: Domain ID containing project With v3token:
+                        Domain ID containing project With password: Domain ID
+                        containing project With v3unscopedsaml: Domain ID
+                        containing project (Env: OS_PROJECT_DOMAIN_ID)
+  --os-project-name <auth-project-name>
+                        With osc_password: Project name to scope to With
+                        v3password: Project name to scope to With
+                        v3scopedsaml: Project name to scope to With
+                        v3unscopedadfs: Project name to scope to With token:
+                        Project name to scope to With v3token: Project name to
+                        scope to With password: Project name to scope to With
+                        v3unscopedsaml: Project name to scope to (Env:
+                        OS_PROJECT_NAME)
+  --os-auth-url <auth-auth-url>
+                        With osc_password: Authentication URL With v2token:
+                        Authentication URL With v2password: Authentication URL
+                        With v3password: Authentication URL With v3scopedsaml:
+                        Authentication URL With v3unscopedadfs: Authentication
+                        URL With token: Authentication URL With v3token:
+                        Authentication URL With password: Authentication URL
+                        With v3unscopedsaml: Authentication URL (Env:
+                        OS_AUTH_URL)
+  --os-identity-provider-url <auth-identity-provider-url>
+                        With v3unscopedadfs: Identity Provider's URL With
+                        v3unscopedsaml: Identity Provider's URL (Env:
+                        OS_IDENTITY_PROVIDER_URL)
+  --os-trust-id <auth-trust-id>
+                        With osc_password: Trust ID With v2token: Trust ID
+                        With v2password: Trust ID With v3password: Trust ID
+                        With v3scopedsaml: Trust ID With v3unscopedadfs: Trust
+                        ID With token: Trust ID With v3token: Trust ID With
+                        password: Trust ID With v3unscopedsaml: Trust ID (Env:
+                        OS_TRUST_ID)
+  --os-service-provider-endpoint <auth-service-provider-endpoint>
+                        With v3unscopedadfs: Service Provider's Endpoint (Env:
+                        OS_SERVICE_PROVIDER_ENDPOINT)
+  --os-user-domain-id <auth-user-domain-id>
+                        With osc_password: User's domain id With v3password:
+                        User's domain id With password: User's domain id (Env:
+                        OS_USER_DOMAIN_ID)
+  --os-url <auth-url>   With token_endpoint: Specific service endpoint to use
+                        (Env: OS_URL)
+  --os-token <auth-token>
+                        With token_endpoint: Authentication token to use With
+                        v2token: Token With v3scopedsaml: Token to
+                        authenticate with With token: Token to authenticate
+                        with With v3token: Token to authenticate with (Env:
+                        OS_TOKEN)
+  --os-domain-name <auth-domain-name>
+                        With osc_password: Domain name to scope to With
+                        v3password: Domain name to scope to With v3scopedsaml:
+                        Domain name to scope to With v3unscopedadfs: Domain
+                        name to scope to With token: Domain name to scope to
+                        With v3token: Domain name to scope to With password:
+                        Domain name to scope to With v3unscopedsaml: Domain
+                        name to scope to (Env: OS_DOMAIN_NAME)
+  --os-user-domain-name <auth-user-domain-name>
+                        With osc_password: User's domain name With v3password:
+                        User's domain name With password: User's domain name
+                        (Env: OS_USER_DOMAIN_NAME)
+  --os-domain-id <auth-domain-id>
+                        With osc_password: Domain ID to scope to With
+                        v3password: Domain ID to scope to With v3scopedsaml:
+                        Domain ID to scope to With v3unscopedadfs: Domain ID
+                        to scope to With token: Domain ID to scope to With
+                        v3token: Domain ID to scope to With password: Domain
+                        ID to scope to With v3unscopedsaml: Domain ID to scope
+                        to (Env: OS_DOMAIN_ID)
+  --os-user-id <auth-user-id>
+                        With osc_password: User id With v2password: User ID to
+                        longin with With v3password: User ID With password:
+                        User id (Env: OS_USER_ID)
+  --os-password <auth-password>
+                        With osc_password: User's password With v2password:
+                        Password to use With v3password: User's password With
+                        v3unscopedadfs: Password With password: User's
+                        password With v3unscopedsaml: Password (Env:
+                        OS_PASSWORD)
+  --os-project-id <auth-project-id>
+                        With osc_password: Project ID to scope to With
+                        v3password: Project ID to scope to With v3scopedsaml:
+                        Project ID to scope to With v3unscopedadfs: Project ID
+                        to scope to With token: Project ID to scope to With
+                        v3token: Project ID to scope to With password: Project
+                        ID to scope to With v3unscopedsaml: Project ID to
+                        scope to (Env: OS_PROJECT_ID)
+  --os-object-api-version <object-api-version>
+                        Object API version, default=1 (Env:
+                        OS_OBJECT_API_VERSION)
+  -h, --help            Show this help message and exit
+
+Commands:
+  aggregate add host  Add host to aggregate
+  aggregate create  Create a new aggregate
+  aggregate delete  Delete an existing aggregate
+  aggregate list  List all aggregates
+  aggregate remove host  Remove host from aggregate
+  aggregate set  Set aggregate properties
+  aggregate show  Display aggregate details
+  availability zone list  List availability zones and their status
+  backup create  Create new backup
+  backup delete  Delete backup(s)
+  backup list    List backups
+  backup restore  Restore backup
+  backup show    Display backup details
+  catalog list   List services in the service catalog
+  catalog show   Display service catalog details
+  command list   List recognized commands by group
+  complete       print bash completion command
+  compute agent create  Create compute agent command
+  compute agent delete  Delete compute agent command
+  compute agent list  List compute agent command
+  compute agent set  Set compute agent command
+  compute service list  List service command
+  compute service set  Set service command
+  console log show  Show server's console output
+  console url show  Show server's remote console URL
+  container create  Create new container
+  container delete  Delete container
+  container list  List containers
+  container save  Save container contents locally
+  container show  Display container details
+  ec2 credentials create  Create EC2 credentials
+  ec2 credentials delete  Delete EC2 credentials
+  ec2 credentials list  List EC2 credentials
+  ec2 credentials show  Display EC2 credentials details
+  endpoint create  Create new endpoint
+  endpoint delete  Delete endpoint
+  endpoint list  List endpoints
+  endpoint show  Display endpoint details
+  extension list  List API extensions
+  flavor create  Create new flavor
+  flavor delete  Delete flavor
+  flavor list    List flavors
+  flavor show    Display flavor details
+  help           print detailed help for another command
+  host list      List host command
+  host show      Show host command
+  hypervisor list  List hypervisors
+  hypervisor show  Display hypervisor details
+  hypervisor stats show  Display hypervisor stats details
+  image delete   Delete image(s)
+  image list     List available images
+  image save     Save an image locally
+  image show     Display image details
+  ip fixed add   Add fixed-ip command
+  ip fixed remove  Remove fixed-ip command
+  ip floating add  Add floating-ip to server
+  ip floating create  Create new floating-ip
+  ip floating delete  Delete a floating-ip
+  ip floating list  List floating-ips
+  ip floating pool list  List floating-ip-pools
+  ip floating remove  Remove floating-ip from server
+  keypair create  Create new public key
+  keypair delete  Delete public key
+  keypair list   List public key fingerprints
+  keypair show   Display public key details
+  limits show    Show compute and volume limits
+  module list    List module versions
+  network create  Create new network
+  network delete  Delete network(s)
+  network list   List networks
+  network set    Set network properties
+  network show   Show network details
+  object create  Upload object to container
+  object delete  Delete object from container
+  object list    List objects
+  object save    Save object locally
+  object show    Display object details
+  project create  Create new project
+  project delete  Delete project(s)
+  project list   List projects
+  project set    Set project properties
+  project show   Display project details
+  quota set      Set quotas for project or class
+  quota show     Show quotas for project or class
+  role add       Add role to project:user
+  role create    Create new role
+  role delete    Delete role(s)
+  role list      List roles
+  role remove    Remove role from project : user
+  role show      Display role details
+  security group create  Create a new security group
+  security group delete  Delete a security group
+  security group list  List all security groups
+  security group rule create  Create a new security group rule
+  security group rule delete  Delete a security group rule
+  security group rule list  List all security group rules
+  security group set  Set security group properties
+  security group show  Show a specific security group
+  server add security group  Add security group to server
+  server add volume  Add volume to server
+  server create  Create a new server
+  server delete  Delete server(s)
+  server image create  Create a new disk image from a running server
+  server list    List servers
+  server lock    Lock a server. A non-admin user will not be able to execute actions
+  server migrate  Migrate server to different host
+  server pause   Pause server
+  server reboot  Perform a hard or soft server reboot
+  server rebuild  Rebuild server
+  server remove security group  Remove security group from server
+  server remove volume  Remove volume from server
+  server rescue  Put server in rescue mode
+  server resize  Scale server to a new flavor
+  server resume  Resume server
+  server set     Set server properties
+  server show    Show server details
+  server ssh     Ssh to server
+  server suspend  Suspend server
+  server unlock  Unlock server
+  server unpause  Unpause server
+  server unrescue  Restore server from rescue mode
+  server unset   Unset server properties
+  service create  Create new service
+  service delete  Delete service
+  service list   List services
+  service show   Display service details
+  snapshot create  Create new snapshot
+  snapshot delete  Delete snapshot(s)
+  snapshot list  List snapshots
+  snapshot set   Set snapshot properties
+  snapshot show  Display snapshot details
+  snapshot unset  Unset snapshot properties
+  token issue    Issue new token
+  token revoke   Revoke existing token
+  usage list     List resource usage per project
+  usage show     Show resource usage for a single project
+  user create    Create new user
+  user delete    Delete user(s)
+  user list      List users
+  user role list  List user-role assignments
+  user set       Set user properties
+  user show      Display user details
+  volume create  Create new volume
+  volume delete  Delete volume(s)
+  volume list    List volumes
+  volume set     Set volume properties
+  volume show    Show volume details
+  volume type create  Create new volume type
+  volume type delete  Delete volume type
+  volume type list  List volume types
+  volume type set  Set volume type properties
+  volume type unset  Unset volume type properties
+  volume unset   Unset volume properties

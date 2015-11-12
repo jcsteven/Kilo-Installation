@@ -1,0 +1,27 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+    address 10.0.0.11
+    netmask 255.255.255.0
+    gateway 10.0.0.1
+#    dns-search example.com sales.example.com dev.example.com
+#    dns-nameservers 192.168.3.45 192.168.8.10
+
+
+#auto eth1
+#iface eth1 inet static
+#    address 172.17.10.11
+#    netmask 255.255.252.0
+#    gateway 172.17.10.251
+#    dns-search example.com
+#    dns-nameservers 172.17.10.251 8.8.8.0
+
+#auto eth1
+#iface INTERFACE_NAME inet manual
+#        up ip link set dev $IFACE up
+#        down ip link set dev $IFACE down
+
+

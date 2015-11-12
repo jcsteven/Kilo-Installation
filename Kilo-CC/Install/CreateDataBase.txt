@@ -1,0 +1,48 @@
+#-- Create keystone
+
+CREATE DATABASE keystone;
+
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
+ IDENTIFIED BY 'ppooiiuu';
+
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
+ IDENTIFIED BY 'ppooiiuu';
+
+#-- Create glance
+CREATE DATABASE glance;
+GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' \
+  IDENTIFIED BY 'ppooiiuu';
+GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
+  IDENTIFIED BY 'ppooiiuu';
+
+#-- Create nova 
+CREATE DATABASE nova;
+  
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' \
+  IDENTIFIED BY 'ppooiiuu';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' \
+  IDENTIFIED BY 'ppooiiuu'; 
+
+#-- Create neutron
+CREATE DATABASE neutron;
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
+  IDENTIFIED BY 'ppooiiuu';
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
+  IDENTIFIED BY 'ppooiiuu';
+
+#-- Create cinder  
+CREATE DATABASE cinder;
+GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' \
+IDENTIFIED BY 'ppooiiuu';
+GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' \
+IDENTIFIED BY 'ppooiiuu';
+
+#-- Create heat
+CREATE DATABASE heat;
+GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'localhost' \
+IDENTIFIED BY 'ppooiiuu';
+GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'%' \
+IDENTIFIED BY 'ppooiiuu';
+ 
+  
+  

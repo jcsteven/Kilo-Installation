@@ -1,0 +1,2 @@
+source 2.1_BasicEnvironment_Other.sh
+source 6.1_Install_Network_Node.sh

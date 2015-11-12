@@ -1,0 +1,3 @@
+source 2.1_BasicEnvironment_Other.sh
+source 5.1_Install_Compute_Node.sh
+source 6.1_Install_Compute_Node_with_networking.sh
